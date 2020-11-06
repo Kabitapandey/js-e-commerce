@@ -72,7 +72,7 @@ const totalPrice = document.querySelector(".total-price");
 const itemNo = document.querySelector(".items-no");
 const clearBtn = document.querySelector(".clear-btn");
 
-let arr = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+// let arr = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 
 clearBtn.addEventListener("click", clearCart);
 
@@ -166,7 +166,7 @@ function addToCart(name) {
     return items.find(item => item.name == name);
 }
 
-
+let arr = [...localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []];
 // items to be added in the cart
 function cartItems(e) {
     cartContainer.classList.add("show");
@@ -174,7 +174,7 @@ function cartItems(e) {
 
     let cartItem = {...addToCart(productName), amount: 1 };
 
-
+    arr = [...localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []];
     let carts = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 
     let inCart = carts.find(item => item.name == productName);
@@ -183,12 +183,12 @@ function cartItems(e) {
         alert("Item already added in the cart");
     }
     if (!inCart) {
-        carts.push(cartItem);
-        saveToCart(carts);
+        arr.push(cartItem);
+        saveToCart(arr);
     }
 
-    cartProduct(carts);
-    totalAmount(carts);
+    cartProduct(arr);
+    totalAmount(arr);
 }
 
 // saving products to the cart
@@ -243,6 +243,8 @@ function cartProduct(items) {
     });
 };
 
+console.log(arr);
+
 // increasing item
 function increaseItem(e) {
     const price = e.currentTarget.dataset.target;
@@ -273,7 +275,6 @@ function decreaseItem(e) {
         }
     });
     totalAmount(arr);
-
     saveToCart(arr);
 }
 
@@ -330,4 +331,3 @@ window.addEventListener("DOMContentLoaded", categoryButtons);
 window.addEventListener("DOMContentLoaded", displayProducts(products));
 window.addEventListener("DOMContentLoaded", cartItem);
 window.addEventListener("DOMContentLoaded", totalAmount(arr));
-window.addEventListener("DOMContentLoaded", cartContainer.classList.remove("show"));
