@@ -173,7 +173,7 @@ function cartItems(e) {
     let productName = e.currentTarget.dataset.target;
 
     let cartItem = {...addToCart(productName), amount: 1 };
-   
+
 
     let carts = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 
@@ -181,7 +181,6 @@ function cartItems(e) {
 
     if (inCart) {
         alert("Item already added in the cart");
-        cartContainer.classList.remove("show");
     }
     if (!inCart) {
         carts.push(cartItem);
