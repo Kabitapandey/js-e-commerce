@@ -73,7 +73,6 @@ const itemNo = document.querySelector(".items-no");
 const clearBtn = document.querySelector(".clear-btn");
 
 let arr = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
-let btns = [];
 
 clearBtn.addEventListener("click", clearCart);
 
@@ -172,10 +171,9 @@ function addToCart(name) {
 function cartItems(e) {
     cartContainer.classList.add("show");
     let productName = e.currentTarget.dataset.target;
-    let btn = e.currentTarget;
 
     let cartItem = {...addToCart(productName), amount: 1 };
-    arr = [...arr, cartItem];
+   
 
     let carts = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
 
@@ -183,6 +181,7 @@ function cartItems(e) {
 
     if (inCart) {
         alert("Item already added in the cart");
+        cartContainer.classList.remove("show");
     }
     if (!inCart) {
         carts.push(cartItem);
@@ -275,6 +274,7 @@ function decreaseItem(e) {
         }
     });
     totalAmount(arr);
+
     saveToCart(arr);
 }
 
