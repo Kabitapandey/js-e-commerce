@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Site</title>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/8cdb96dce1.js" crossorigin="anonymous"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="cart-container">
+            <div class="cart-title">
+                <h1>Your Bag</h1>
+                <span class="close">&times;</span>
+            </div>
+
+            <div class="cart-products"></div>
+
+            <div class="product-total">
+                <h1>Total:</h1>
+                <h1 class="total-price">0</h1>
+                <button type="button" class="clear-btn">Clear</button>
+            </div>
+        </div>
+        <!-- navbar -->
+        <header class="navbar-list">
+            <nav class="navbar">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Our Services</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+                <li class="nav-item cart-style"><a href="#" class="nav-link cart-btn"><i class="fas fa-cart-plus">
+                     </i>
+                   </a>
+                    <span class="items-no"></span>
+                </li>
+            </nav>
+        </header>
+        <!-- end of navbar -->
+        <div class="container">
+
+            <!-- btn-container -->
+            <div class="btn-container"></div>
+            <section class="products-container">
+
+            </section>
+        </div>
+    </div>
+    <!-- js -->
+    <script src="cart.js"></script>
+</body>
+
+</html>
